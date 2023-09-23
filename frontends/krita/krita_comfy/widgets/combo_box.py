@@ -65,7 +65,7 @@ class QComboBoxLayout(QHBoxLayout):
         self.qcombo.setMinimumWidth(10)
 
         self.addWidget(self.qlabel)
-        self.addWidget(self.qcombo)
+        self.addWidget(self.qcombo, stretch=1)
 
     def cfg_init(self):
         opts = sorted(

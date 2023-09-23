@@ -1,9 +1,10 @@
 import sys
 
-from PyQt5.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QWidget
+from PyQt5.QtWidgets import QMainWindow, QApplication, QVBoxLayout, QWidget, QTabWidget
 
 from krita_comfy.config import Config
 from krita_comfy.pages.txt2img import Txt2ImgPage
+from krita_comfy.pages.img_combined import CombinedPage
 
 """Test App for GUI components
     This file is not part of the Krita plugin.
@@ -15,11 +16,12 @@ class Test_Window(QMainWindow):
     def __init__(self):
         super().__init__()
         self.cfg = Config()
-        self.setCentralWidget(QWidget())
-        layout = QVBoxLayout(self.centralWidget())
-        layout.setContentsMargins(0, 0, 0, 0)
-        self.page = Txt2ImgPage()
-        layout.addWidget(self.page)
+        self.tabs: QTabWidget = QTabWidget()
+        self.setCentralWidget(self.tabs)
+        self.txt2img = Txt2ImgPage()
+        self.combined = CombinedPage()
+        self.tabs.addTab(self.txt2img, "txt2img")
+        self.tabs.addTab(self.combined, "combined")
 
 
 if __name__ == "__main__":

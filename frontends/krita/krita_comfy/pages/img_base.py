@@ -19,8 +19,8 @@ class SDImgPageBase(QWidget):
 
         self.status_bar = StatusBar()
 
-        self.custom_workflow = QCheckBox(
-            script.cfg, f"{cfg_prefix}_custom_workflow", label="Enable custom workflow"
+        self.workflow = QComboBoxLayout(
+            script.cfg, "workflow_to_list", "current_workflow", "Workflow:"
         )
 
         self.prompt_layout = QPromptLayout(
@@ -66,7 +66,7 @@ class SDImgPageBase(QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
 
         layout.addWidget(self.status_bar)
-        layout.addWidget(self.custom_workflow)
+        layout.addLayout(self.workflow)
         layout.addLayout(self.prompt_layout)
         layout.addWidget(self.prompt_layer_load)
         layout.addLayout(self.seed_layout)

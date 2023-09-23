@@ -4,6 +4,7 @@ from .img2img import Img2ImgPage
 from .inpaint import InpaintPage
 from .preview import PreviewPage
 from .txt2img import Txt2ImgPage
+from .img_combined import CombinedPage
 from .upscale import UpscalePage
 from .controlnet import ControlNetPage
 from .workflow import WorkflowPage
